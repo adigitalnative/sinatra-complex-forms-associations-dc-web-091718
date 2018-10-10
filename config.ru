@@ -10,5 +10,9 @@ Dir[File.join(File.dirname(__FILE__), "app/controllers", "*.rb")].collect {|file
   class_name = Object.const_get(string_class_name)
   use class_name
 end
+
+#When PetsController is added here, it isn't getting past the specs for the Owners controller... TODO
 use Rack::MethodOverride
-run ApplicationController
+use ApplicationController
+use PetsController
+run OwnersController
